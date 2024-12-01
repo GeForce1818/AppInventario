@@ -1,0 +1,62 @@
+﻿<Window x:Class="InventarioApp.Views.ProductoNuevoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventarioApp.Views"
+        mc:Ignorable="d"
+        Title="Producto Nuevo"
+        FontSize="18" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Height="450" Width="500" Loaded="Window_Loaded">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFA9E309"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="79*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Campos de ingreso basados en ProductoNuevoDetailModel -->
+
+        <Label Content="Producto Nuevo ID" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <TextBox x:Name="txtProductoNuevoId" Grid.Row="0" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label Content="Nombre" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label Content="Descripción" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <TextBox x:Name="txtDescripcion" Grid.Row="2" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label Content="Precio Estimado" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <TextBox x:Name="txtPrecioEstimado" Grid.Row="3" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label Content="Categoría" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <ComboBox x:Name="cmbCategoria" Grid.Row="4" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label Content="Estado Registro" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <ComboBox x:Name="cmbRegistro" Grid.Row="5" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <!-- Botones de acción -->
+        <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Margin="0,20,0,0">
+            <Button x:Name="btnGuardar" Content="Guardar" Width="80" Height="30" Margin="0,0,15,0" Click="btnGuardar_Click" Cursor="Hand"/>
+            <Button x:Name="btnCerrar" Content="Cerrar" Width="80" Height="30" Margin="0,0,15,0" Click="btnCerrar_Click" Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</Window>

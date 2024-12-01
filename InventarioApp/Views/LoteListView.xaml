@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="InventarioApp.Views.LoteListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InventarioApp.Views"
+      mc:Ignorable="d"
+      Loaded="UserControl_Loaded"
+      d:DesignHeight="550" d:DesignWidth="1000" Background="White">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Formulario de ingreso de nuevo lote -->
+        <Border Grid.Row="0" CornerRadius="10" BorderThickness="1" BorderBrush="DarkGray" Background="#fcfbfc">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="ID Lote:" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtLoteId" Grid.Column="1" Width="120" Height="25" Background="LightGray"/>
+
+                <Label Content="ID Producto:" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <ComboBox x:Name="cmbProductoId" Grid.Column="3" Width="120" Height="25" Background="LightGray"/>
+
+                <Label Content="Fecha Fabricación:" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <DatePicker x:Name="dpFechaFabricacion" Grid.Column="5" Width="130" Height="25"/>
+
+                <Label Content="Fecha Vencimiento:" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <DatePicker x:Name="dpFechaVencimiento" Grid.Column="7" Width="130" Height="25"/>
+            </Grid>
+        </Border>
+
+        <!-- Formulario para Lote Ubicación y Estado -->
+        <Border Grid.Row="1" CornerRadius="10" BorderThickness="1" BorderBrush="DarkGray" Background="#fcfbfc" Margin="0,10,0,0">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Ubicación Lote:" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtLoteUbicacion" Grid.Column="1" Width="150" Height="25" Background="LightGray"/>
+
+                <Label Content="Estado Lote:" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <ComboBox x:Name="cmbLoteEstado" Grid.Column="3" Width="150" Height="25"/>
+            </Grid>
+        </Border>
+
+        <!-- Botones de acción -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Button x:Name="btnNuevo" Content="Nuevo" Width="100" Margin="5" Click="btnNuevo_Click"/>
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="100" Margin="5" Click="btnActualizar_Click"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="100" Margin="5" Click="btnEliminar_Click"/>
+            <Button x:Name="btnBuscar" Content="Buscar" Width="100" Margin="5" Click="btnBuscar_Click"/>
+            <Button x:Name="btnLimpiar" Content="Limpiar" Width="100" Margin="5" Click="btnLimpiar_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid para mostrar los lotes existentes -->
+        <DataGrid x:Name="gridLotes" Grid.Row="2" Grid.RowSpan="2" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Margin="0,50,0,10">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Lote" Width="*" Binding="{Binding lote_id}"/>
+                <DataGridTextColumn Header="ID Producto" Width="2*" Binding="{Binding producto_id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Producto" Width="2*" Binding="{Binding nombre}" />
+                <DataGridTextColumn Header="Fecha Fabricación" Width="1.5*" Binding="{Binding fecha_fabricacion}"/>
+                <DataGridTextColumn Header="Fecha Vencimiento" Width="1.5*" Binding="{Binding fecha_vencimiento}"/>
+                <DataGridTextColumn Header="Ubicación Lote" Width="2*" Binding="{Binding lote_ubicacion}"/>
+                <DataGridTextColumn Header="Estado Lote" Width="2*" Binding="{Binding lote_estado}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Estado del Lote" Width="2*" Binding="{Binding estado_nombre}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

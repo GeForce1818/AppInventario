@@ -1,0 +1,22 @@
+﻿<Window x:Class="InventarioApp.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventarioApp"
+        mc:Ignorable="d"
+        Title="SplashScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" Width="600" Height="300">
+    <Grid>
+        <Border Background="White" CornerRadius="10">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image Source="./Images/Logo.png" Stretch="Uniform" />
+                <Image Source="./Images/E-lote.png" Stretch="Uniform" Margin="90,3,219,111" />
+                <TextBlock Grid.Row="1" Text="Sistema de Gestión de Inventarios - El Lote -" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

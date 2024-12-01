@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\CategoriaListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExtraccionListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\InicioSesionWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductoListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductoNuevoListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductoNuevoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProveedorListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProveedorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RegistroProductoListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StockListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StockWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CategoriaListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ExtraccionListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InicioSesionWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProductoListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProductoNuevoListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProductoNuevoWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProductoWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProveedorListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProveedorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RegistroProductoListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StockListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StockWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

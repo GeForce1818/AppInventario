@@ -1,0 +1,20 @@
+﻿InventarioApp
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Galex\Documents\Visual Studio Archives\InventarioApp\InventarioApp\obj\Release\net8.0-windows\
+InventarioApp
+none
+false
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+C:\Users\Galex\Documents\Visual Studio Archives\InventarioApp\InventarioApp\App.xaml
+21513871144
+
+7221488223
+2141491503361
+MainWindow.xaml;SplashScreen.xaml;Views\CategoriaListView.xaml;Views\CategoriaWindow.xaml;Views\DetalleNuevoPedidoWindow.xaml;Views\DetallePedidoWindow.xaml;Views\ExtraccionListView.xaml;Views\InicioSesionWindow.xaml;Views\InventarioListView.xaml;Views\InventarioWindow.xaml;Views\LoteListView.xaml;Views\LoteWindow.xaml;Views\PedidoListView.xaml;Views\PedidoNuevoListView.xaml;Views\ProductoListView.xaml;Views\ProductoNuevoListView.xaml;Views\ProductoNuevoWindow.xaml;Views\ProductoWindow.xaml;Views\RegistroProductoListView.xaml;Views\StockListView.xaml;Views\StockWindow.xaml;
+
+True
+

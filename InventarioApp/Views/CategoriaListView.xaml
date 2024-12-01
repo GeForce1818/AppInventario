@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="InventarioApp.Views.CategoriaListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+      Loaded="UserControl_Loaded"
+      d:DesignHeight="550" d:DesignWidth="950" Background="White">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Formulario de ingreso de nueva categoría -->
+        <Border Grid.Row="0" CornerRadius="10" BorderThickness="1" BorderBrush="DarkGray" Background="#fcfbfc">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="ID Categoría:" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtCategoriaId" Grid.Column="1" Width="150" Height="25" Background="LightGray"/>
+
+                <Label Content="Nombre:" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtCategoriaNombre" Grid.Column="3" Width="150" Height="25" Background="LightGray"/>
+
+                <Label Content="Descripción:" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtDescripcion" Grid.Column="5" Height="60" VerticalAlignment="Top" Background="LightGray" AcceptsReturn="True" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Border>
+
+        <!-- Botones de acción -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Button x:Name="btnNuevo" Content="Nuevo" Width="100" Margin="5" Click="btnNuevo_Click"/>
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="100" Margin="5" Click="btnActualizar_Click"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="100" Margin="5" Click="btnEliminar_Click"/>
+            <Button x:Name="btnBuscar" Content="Buscar" Width="100" Margin="5" Click="btnBuscar_Click"/>
+            <Button x:Name="btnLimpiar" Content="Limpiar" Width="100" Margin="5" Click="btnLimpiar_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid para mostrar las categorías existentes -->
+        <DataGrid x:Name="gridCategorias" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Margin="0,10,0,0">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Categoría" Width="*" Binding="{Binding categoria_id}"/>
+                <DataGridTextColumn Header="Nombre" Width="2*" Binding="{Binding categoria_nombre}"/>
+                <DataGridTextColumn Header="Descripción" Width="3*" Binding="{Binding descripcion}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

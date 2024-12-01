@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="InventarioApp.Views.ProveedorListView" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InventarioApp.Views"
+             mc:Ignorable="d"
+             FontSize="18"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="700" d:DesignWidth="1000" Background="White">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lblProveedorId" Content="Proveedor ID" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="txtProveedorId" Width="140" Height="30" Grid.Row="0" Grid.Column="1"/>
+        <Label x:Name="lblProveedorNombre" Content="Nombre Proveedor" VerticalAlignment="Center" Grid.Row="0" Grid.Column="2" FontSize="17"/>
+        <TextBox x:Name="txtProveedorNombre" Width="140" Height="30" Grid.Row="0" Grid.Column="3" />
+        <Label x:Name="lblNumeroTelefono" Content="Número Teléfono" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+        <TextBox x:Name="txtNumeroTelefono" Width="140" Height="30" Grid.Row="1" Grid.Column="1"/>
+        <Label x:Name="lblEmail" Content="Email" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+        <TextBox x:Name="txtEmail" Width="140" Height="30" Grid.Row="1" Grid.Column="3"/>
+        <Label x:Name="lblDireccion" Content="Dirección" VerticalAlignment="Center" Grid.Row="1" Grid.Column="4"/>
+        <TextBox x:Name="txtDireccion" Width="150" Height="30" Grid.Row="1" Grid.Column="5"/>
+        <Button x:Name="btnBuscar" Content="Buscar" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="90" Margin="20,0,0,0" Click="btnBuscar_Click" Cursor="Hand"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" Grid.Row="0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="90" Margin="40,0,0,0" Click="btnLimpiar_Click" Cursor="Hand"/>
+
+        <DataGrid x:Name="gridProveedores" Grid.Row="2" Grid.ColumnSpan="6" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  SelectionMode="Single" Margin="0,20,0,20">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Proveedor" Width="10*" Binding="{Binding proveedor_id}"/>
+                <DataGridTextColumn Header="Nombre" Width="20*" Binding="{Binding proveedor_nombre}"/>
+                <DataGridTextColumn Header="Teléfono" Width="20*" Binding="{Binding numerotelefono}"/>
+                <DataGridTextColumn Header="Email" Width="22*" Binding="{Binding email}"/>
+                <DataGridTextColumn Header="Dirección" Width="15*" Binding="{Binding direccion}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" Orientation="Horizontal">
+            <Button x:Name="btnNuevo" Content="Nuevo" Width="100" Height="30" Margin="0,0,15,0" Click="btnNuevo_Click" Cursor="Hand"/>
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="100" Height="30" Margin="0,0,15,0" Click="btnActualizar_Click" Cursor="Hand"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="100" Height="30" Margin="0,0,15,0" Click="btnEliminar_Click"  Cursor="Hand"/>
+            <Button x:Name="btnImprimir" Content="Imprimir" Width="100" Height="30" Margin="100,0,15,0" Cursor="Hand"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
+

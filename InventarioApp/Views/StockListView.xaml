@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="InventarioApp.Views.StockListView" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InventarioApp.Views"
+             mc:Ignorable="d"
+             FontSize="18"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="700" d:DesignWidth="1000" Background="White">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lblStockId" Content="Stock ID" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="txtStockId" Width="140" Height="30" Grid.Row="0" Grid.Column="1"/>
+        <Label x:Name="lblLoteId" Content="Lote ID" VerticalAlignment="Center" Grid.Row="0" Grid.Column="2"/>
+        <ComboBox x:Name="cmbLoteId" Width="140" Height="30" Grid.Row="0" Grid.Column="3"/>
+        <Label x:Name="lblCantidadDisponible" Content="Cantidad Disponible" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+        <TextBox x:Name="txtCantidadDisponible" Width="140" Height="30" Grid.Row="1" Grid.Column="1"/>
+        <Label x:Name="lblStockEstado" Content="Estado del Stock" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+        <ComboBox x:Name="cmbStockEstado" Width="140" Height="30" Grid.Row="1" Grid.Column="3"/>
+        <Button x:Name="btnBuscar" Content="Buscar" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="90" Margin="40,0,0,0" Click="btnBuscar_Click" Cursor="Hand"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="90" Margin="40,0,0,0" Click="btnLimpiar_Click" Cursor="Hand"/>
+
+        <DataGrid x:Name="gridStock" Grid.Row="2" Grid.ColumnSpan="5" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  SelectionMode="Single" Margin="0,20,0,20">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Stock" Width="10*" Binding="{Binding stock_id}"/>
+                <DataGridTextColumn Header="Lote ID" Width="20*" Binding="{Binding lote_id}"/>
+                <DataGridTextColumn Header="Cantidad Disponible" Width="22*" Binding="{Binding cantidad_disponible}"/>
+                <DataGridTextColumn Header="Estado ID" Width="20*" Binding="{Binding stock_estado}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Estado" Width="20*" Binding="{Binding estado_nombre}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" Orientation="Horizontal">
+            <Button x:Name="btnNuevo" Content="Nuevo" Width="100" Height="30" Margin="0,0,15,0" Click="btnNuevo_Click" Cursor="Hand"/>
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="100" Height="30" Margin="0,0,15,0" Click="btnActualizar_Click" Cursor="Hand"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="100" Height="30" Margin="0,0,15,0" Click="btnEliminar_Click"  Cursor="Hand"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

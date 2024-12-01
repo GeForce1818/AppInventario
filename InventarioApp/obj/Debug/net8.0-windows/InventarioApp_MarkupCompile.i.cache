@@ -1,0 +1,20 @@
+﻿InventarioApp
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\jorgi\OneDrive\Escritorio\InventarioApp Ultima Version\InventarioApp\InventarioApp\obj\Debug\net8.0-windows\
+InventarioApp
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\jorgi\OneDrive\Escritorio\InventarioApp Ultima Version\InventarioApp\InventarioApp\App.xaml
+231134838722
+
+741279943781
+214-1119151245
+MainWindow.xaml;SplashScreen.xaml;Views\CategoriaListView.xaml;Views\CategoriaWindow.xaml;Views\DetalleNuevoPedidoWindow.xaml;Views\DetallePedidoWindow.xaml;Views\ExtraccionListView.xaml;Views\InicioSesionWindow.xaml;Views\InventarioListView.xaml;Views\InventarioWindow.xaml;Views\LoteListView.xaml;Views\LoteWindow.xaml;Views\PedidoListView.xaml;Views\PedidoNuevoListView.xaml;Views\ProductoListView.xaml;Views\ProductoNuevoListView.xaml;Views\ProductoNuevoWindow.xaml;Views\ProductoWindow.xaml;Views\ProveedorListView.xaml;Views\ProveedorWindow.xaml;Views\RegistroProductoListView.xaml;Views\StockListView.xaml;Views\StockWindow.xaml;
+
+True
+

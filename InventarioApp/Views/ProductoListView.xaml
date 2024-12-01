@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="InventarioApp.Views.ProductoListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InventarioApp.Views"
+      mc:Ignorable="d" 
+                   d:DesignHeight="550" d:DesignWidth="900" 
+             FontSize="18"
+             Background="White" Loaded="UserControl_Loaded">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lblIdproducto" Content="Id producto" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtProductoId" MaxLength="10" Grid.Row="0" Grid.Column="1" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label x:Name="lblNombre" Content="Nombre" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblCategoria" Content="Categoría" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cmbCategoria" Grid.Row="0" Grid.Column="3" Height="30" VerticalAlignment="Center" Margin="0"/>
+        <Label x:Name="lblInventario" Content="Inventario" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cmbInventario" Grid.Row="1" Grid.Column="3" Height="30" VerticalAlignment="Center" Margin="0"/>
+
+        <Button x:Name="btnBuscar" Content="Buscar" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="90" Margin="40,0,0,0" Click="btnBuscar_Click" Cursor="Hand"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="90" Margin="40,0,0,0" Click="btnLimpiar_Click" Cursor="Hand"/>
+
+        <DataGrid x:Name="gridProductos" Grid.Row="2" Grid.ColumnSpan="5" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Margin="0,20,0,20">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id producto" Width="12*" Binding="{Binding producto_id}"/>
+                <DataGridTextColumn Header="Nombre" Width="20*" Binding="{Binding nombre}"/>
+                <DataGridTextColumn Header="Descripción" Width="40*" Binding="{Binding descripcion}"/>
+                <DataGridTextColumn Header="Cantidad" Width="12*" Binding="{Binding cantidad_total}"/>
+                <DataGridTextColumn Header="Precio unitario" Width="10*" Binding="{Binding preciounitario, StringFormat='C2'}"/>
+                <DataGridTextColumn Header="Idcategoria" Width="0" Binding="{Binding categoria_id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Categoría" Width="15*" Binding="{Binding categoria_nombre}"/>
+                <DataGridTextColumn Header="IdInventario" Width="0" Binding="{Binding inventario_id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Inventario" Width="15*" Binding="{Binding inventario_nombre}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" Orientation="Horizontal">
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="100" Height="30" Margin="0,0,10,0" Click="btnActualizar_Click" Cursor="Hand"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="100" Height="30" Margin="0,0,10,0" Click="btnEliminar_Click" Cursor="Hand"/>
+
+        </StackPanel>
+    </Grid>
+    </UserControl>

@@ -1,0 +1,139 @@
+﻿<Window x:Class="InventarioApp.Views.DetalleNuevoPedidoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventarioApp.Views"
+        mc:Ignorable="d"
+        FontSize="18"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        Title="Pedido" Height="650" Width="1300">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF044511" Offset="0"/>
+            <GradientStop Color="#FF7BB30D" Offset="0.65"/>
+            <GradientStop Color="#FFEAE515" Offset="0.80"/>
+            <GradientStop Color="#ffffff" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <!--#region Información del pedido -->
+        <Border x:Name="borAgregarPedido" Grid.Row="0" Grid.RowSpan="2" CornerRadius="10" BorderThickness="1" BorderBrush="DarkGray" Background="#fcfbfc">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lblNPedidoId" Content="Id N: pedido " Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtPedidoId" Grid.Row="0" Grid.Column="1" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Background="LightGray"/>
+                <Label x:Name="lblProveedor" Content="Proveedor id" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cmbNProveedor" Width="200" Height="30" Grid.Column="3" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblFechapedido" Content=" Fecha pedido " Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <DatePicker x:Name="calNFechaPedido" Grid.Row="1" Grid.Column="3" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label x:Name="lblFechaentrega" Content=" Fecha entrega " Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <DatePicker x:Name="calNFechaEntrega" Grid.Row="1" Grid.Column="5" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblTipodepago" Content="Tipo de pago " Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cmbNTipopago" Grid.Row="1" Grid.Column="1" Height="30" VerticalAlignment="Center" Margin="0"/>
+                <Button x:Name="btnGuardar" Content="Guardar" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="90" Height="30" Margin="25,0,0,0" Cursor="Hand" Click="btnGuardar_Click"/>
+            </Grid>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region Agregar producto -->
+        <Border x:Name="borAgregarProducto" Grid.Row="2" Grid.RowSpan="2" CornerRadius="10" BorderThickness="1" BorderBrush="DarkGray" Background="#fcfbfc" Margin="0,20,0,0">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lblIdproducto" Content="Id producto" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                    <ComboBox x:Name="cmbNProductoId"  Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button x:Name="btnBuscar" Content="Buscar" Width="80" Height="30" Cursor="Hand" Margin="5,0,0,0" Click="btnBuscar_Click"/>
+                </StackPanel>
+                <Label x:Name="lblLote" Content=" Id Lote" Grid.Row="0" Grid.Column="2" Height="38" VerticalAlignment="Top"/>
+                <Label x:Name="lblFechaVen" Content=" Fecha de vencimiento" Grid.Row="0" Grid.Column="3" Margin="4,0,0,0"/>
+                <DatePicker x:Name="calNFechaVenci" Grid.Column="4" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0"/>
+                <Label x:Name="lblPreciouni" Content=" Precio unitario" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="0,0,0,0" Grid.RowSpan="2"/>
+                <TextBox x:Name="txtNPreciouni" Width="85" Height="30" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Left" Background="LightGray" IsReadOnly="True" Margin="11,4,0,4" PreviewTextInput="txtNPreciouni_PreviewTextInput"/>
+                
+                <Label x:Name="lblCantidadPedido" Content="Cantidad Solicitada " Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtNCantidadSolicitada" MaxLength="4" Width="90" Height="30" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" PreviewTextInput="txtCantidadPedido_PreviewTextInput" />
+                <Label x:Name="lblFechaFab" Content="Fecha de fabricacion" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <DatePicker x:Name="calNFechaFabricacion" Grid.Column="3" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,2,0,0" Grid.Row="1"/>
+                <Button x:Name="btnAgregar" Content="Agregar" Width="70" Height="30" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" Margin="7,0,0,0" Cursor="Hand" Click="btnAgregar_Click"/>
+                <Button x:Name="btnQuitar" Content="Quitar" Width="70" Height="30" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Left" Margin="7,0,0,0" Cursor="Hand" Click="btnQuitar_Click" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtNIdLote" Width="90" Height="30" Grid.Column="2" HorizontalAlignment="Left" Margin="70,4,0,4" Grid.ColumnSpan="2"/>
+               
+
+            </Grid>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region Detalle del pedidos -->
+        <DataGrid x:Name="gridDetallePedido" Grid.Row="4" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Margin="0,30,0,0">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id pedido" Width="10*" Binding="{Binding pedido_nuevo_id}"/>
+                <DataGridTextColumn Header="Producto" Width="10*" Binding="{Binding nombre}"/>
+                <DataGridTextColumn Header="Cantidad Solicitada" Width="10*" Binding="{Binding cantidad_solicitada}"/>
+                <DataGridTextColumn Header="Lote ID" Width="8*" Binding="{Binding lote_id}"/>
+                <DataGridTextColumn Header="Fecha de fabricacion" Width="10*" Binding="{Binding fecha_fabricacion, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Fecha de vencimiento" Width="10*" Binding="{Binding fecha_vencimiento, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Precio unitario" Width="10*" Binding="{Binding precio_unitario, StringFormat='C2'}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--#endregion-->
+
+        <!--#region Total pedido -->
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnCerrar" Content="Cerrar" Grid.Column="0" Width="100" Height="30" Cursor="Hand" HorizontalAlignment="Left" Margin="10,12,0,0" Click="btnCerrar_Click" VerticalAlignment="Top"/>
+            <Label x:Name="lblTotalTitulo" Content="Total del pedido: " Grid.Column="2" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <Label x:Name="lblTotalPedido" Grid.Column="3" FontSize="22" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Window>

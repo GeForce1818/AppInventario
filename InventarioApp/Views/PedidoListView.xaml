@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="InventarioApp.Views.PedidoListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InventarioApp.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="900" 
+      FontSize="18"
+      Background="White" Loaded="UserControl_Loaded">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Filtros de búsqueda -->
+        <Label x:Name="lblIdPedido" Content="Id Pedido" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtPedidoId" MaxLength="10" Grid.Row="0" Grid.Column="1" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Label x:Name="lblFechaPedido" Content="Fecha de Pedido" FontSize="13" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <DatePicker x:Name="calFechaPedido" Grid.Row="0" Grid.Column="3" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" Width="124"/>
+
+        <Label x:Name="lblProveedorId" Content="Proveedor Id" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cmbProveedor" Grid.Row="1" Grid.Column="1" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Label x:Name="lblFechaEntrega" Content="Fecha de Entrega" FontSize="13" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <DatePicker x:Name="calFechaEntrega" Grid.Row="1" Grid.Column="3" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" Width="124"/>
+
+        <Label x:Name="lblTipoPagoId" Content="Tipo de Pago Id" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <ComboBox x:Name="cmbTipoPago" Grid.Column="4" HorizontalAlignment="Left" Margin="165,0,0,0" VerticalAlignment="Center" Width="120"/>
+        
+        <Button x:Name="btnBuscar" Content="Buscar" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" Width="90" Margin="78,4,0,5" Click="btnBuscar_Click" Cursor="Hand"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" Grid.Row="1" Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="90" Margin="195,0,0,4" Click="btnLimpiar_Click" Cursor="Hand"/>
+
+        <!-- Tabla de pedidos -->
+        <DataGrid x:Name="gridPedidos" Grid.Row="2" Grid.ColumnSpan="5" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Margin="0,20,0,20">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Pedido" Width="12*" Binding="{Binding pedido_id}"/>
+                <DataGridTextColumn Header="Fecha de Pedido" Width="20*" Binding="{Binding pedido_fecha, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Proveedor" Width="15*" Binding="{Binding proveedor_nombre}"/>
+                <DataGridTextColumn Header="Fecha de Entrega" Width="20*" Binding="{Binding fecha_entrega, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Tipo de Pago" Width="15*" Binding="{Binding descripcion}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Botones de acciones -->
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" Orientation="Horizontal">
+            <Button x:Name="btnNuevo" Content="Nuevo" Width="100" Height="30" Margin="0,0,10,0" Cursor="Hand" Click="btnNuevo_Click"/>
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="100" Height="30" Margin="0,0,10,0" Click="btnActualizar_Click" Cursor="Hand"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="100" Height="30" Margin="0,0,10,0" Click="btnEliminar_Click" Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
